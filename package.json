@@ -1,5 +1,5 @@
 {
-  "name": "my-weekly-express-backend",
+  "name": "my-weekly-express.js-backend",
   "packageManager": "yarn@4.9.2",
   "version": "1.0.0",
   "type": "module",
