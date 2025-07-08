@@ -1,9 +1,6 @@
 {
   "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2022", // ? research use case
-    "module": "NodeNext", // ? research use case
-    "moduleResolution": "NodeNext", // ? research use case
     "outDir": "./dist",
     "rootDir": "./"
   },
