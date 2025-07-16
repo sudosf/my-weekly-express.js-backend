@@ -1,7 +1,18 @@
+import uploadRoutes from '#routes';
 import express from 'express';
+import path from 'path';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 
-app.use(express.json());
+// Serve static files (if needed)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Routes
+app.use('/api', uploadRoutes);
 
 export default app;
