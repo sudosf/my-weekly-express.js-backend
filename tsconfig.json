@@ -1,8 +1,26 @@
 {
   "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
     "outDir": "./dist",
-    "rootDir": "./"
+    "baseUrl": "./",
+    "rootDir": "./",
+    "paths": {
+      "#config": [
+        "src/config/index.ts"
+      ],
+      "#controllers": [
+        "src/controllers/index.ts"
+      ],
+      "#middleware": [
+        "src/middleware/index.ts"
+      ],
+      "#routes": [
+        "src/routes/index.ts"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts"
