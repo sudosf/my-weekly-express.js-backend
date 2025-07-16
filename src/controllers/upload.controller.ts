@@ -1,12 +1,29 @@
+import { generatePdfFromImages, processImages } from '#services';
 import { Request, Response } from 'express';
+import path from 'path';
 
-export const handleImageUpload = (req: Request, res: Response) => {
-  const files = req.files as Express.Multer.File[];
-
-  if (files.length === 0) {
+export const handleImageUpload = async (req: Request, res: Response) => {
+  
+  if (!req.files || req.files.length === 0) {
     return res.status(400).json({ error: 'No images uploaded' });
   }
 
-  const fileNames = files.map(f => f.filename);
-  res.status(200).json({ uploaded: fileNames });
+  const files = req.files as Express.Multer.File[];
+  const filePaths = files.map(file => path.resolve(file.path));
+
+  try {
+    const processedPaths = await processImages(filePaths);
+    const pdfBuffer = await generatePdfFromImages(processedPaths);
+
+    // TODO update filename
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=receipts.pdf');
+    res.send(pdfBuffer);
+  } catch (error) {
+    res.status(500).json({
+      details: error instanceof Error ? error.message : String(error),
+      error: 'Internal Server Error',
+      success: false,
+    });
+  }
 };

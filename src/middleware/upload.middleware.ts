@@ -20,7 +20,7 @@ const upload = multer({
     else cb(new Error('Only JPEG/PNG files allowed'));
   },
   limits: { fileSize: FILE_UPLOAD.MAX_SIZE_MB * 1024 * 1024 },
-  storage,
+  storage
 });
 
 // TODO remove uploads
