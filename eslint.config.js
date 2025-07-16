@@ -31,7 +31,7 @@ export default tseslint.config(
       'no-console': WARN,
 
       // Avoid careless `any`
-      '@typescript-eslint/no-explicit-any': WARN,
+      '@typescript-eslint/no-explicit-any': ERROR,
 
       // Sorting rules
       'perfectionist/sort-exports': WARN,
@@ -51,7 +51,6 @@ export default tseslint.config(
       'eol-last': [ERROR, 'always'],
 
       // Optional stricter suggestions
-      'no-magic-numbers': [WARN, { ignore: [0, 1], ignoreArrayIndexes: true, enforceConst: true }],
       'no-implicit-coercion': ERROR,
     }
   }
