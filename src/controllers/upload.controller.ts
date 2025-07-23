@@ -17,9 +17,11 @@ export const handleImageUpload = async (req: Request, res: Response) => {
     processedPaths = await processImages(filePaths);
     const pdfBuffer = await generatePdfFromImages(processedPaths);
 
-    // TODO update filename
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const filename = `claims-${timestamp}.pdf`;
+
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `attachment; filename=claims-${new Date().toISOString()}.pdf`);
+    res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
     res.send(pdfBuffer);
   } catch (error) {
     res.status(500).json({
