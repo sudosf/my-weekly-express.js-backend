@@ -1,13 +1,13 @@
 {
   "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
+    "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "strict": true,
-    "target": "ES2022",
-    "outDir": "./dist",
+    "outDir": "dist",
     "baseUrl": "./",
-    "rootDir": "./",
+    "rootDir": "src",
     "paths": {
       "#config": [
         "src/config/index.ts"
