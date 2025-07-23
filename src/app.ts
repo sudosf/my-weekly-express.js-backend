@@ -12,7 +12,6 @@ const __dirname = dirname(__filename);
 
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// Routes
 app.use('/api', uploadRoutes);
 
 export default app;

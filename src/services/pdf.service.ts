@@ -2,7 +2,6 @@ import { getImageSize } from '#utils';
 import { buffer } from 'node:stream/consumers';
 import PDFDocument from 'pdfkit';
 
-
 export const generatePdfFromImages = async (imagePaths: string[]): Promise<Buffer> => {
 
   const doc = new PDFDocument({ autoFirstPage: false });

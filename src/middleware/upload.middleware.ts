@@ -23,5 +23,4 @@ const upload = multer({
   storage
 });
 
-// TODO remove uploads
 export const uploadImages = upload.array(FILE_UPLOAD.FIELD_NAME, FILE_UPLOAD.MAX_FILES);
